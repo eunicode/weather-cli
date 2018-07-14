@@ -1,7 +1,7 @@
 // Import weather module
 const weather = require('./weather');
 
-// Format query
+// Format user query
 const query = process.argv.slice(2).join(' ');
 // `process` is a global object that provides information about, and control over,
 // the current Node.js process. (Source: docs)
@@ -13,5 +13,5 @@ const query = process.argv.slice(2).join(' ');
 // The remaining elements will be any additional command line arguments. 
 // (Source: docs)
 
-// Pass query to the weather module's `get` function
+// Pass user query and call the weather module's `get` function
 weather.get(query);
