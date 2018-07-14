@@ -8,6 +8,12 @@ const querystring = require('querystring');
 const api = require('./api.json');
 
 // Print out temp details
+function printWeather(weather) {
+    // `weather` is the parsed JSON object returned from OWM API.
+    const message = `Current temperature in ${weather.name} is ${weather.main.temp}F`;
+    console.log(message);
+}
+
 // Print out error message
 
 // Retrieve data from Open Weather Map API
@@ -56,7 +62,7 @@ function get(query) {
 
         // The whole response has been recieved, so we just print it out here
         response.on('end', () => {
-            console.log(body);
+            // console.log(body);
 
             // node app.js 90012
 
@@ -76,7 +82,10 @@ function get(query) {
             // }
 
             // Parse data
+            const weather = JSON.parse(body);
+
             // Print data
+            printWeather(weather);
         });
     });
 
